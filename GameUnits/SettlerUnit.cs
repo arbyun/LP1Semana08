@@ -2,9 +2,8 @@
 {
     public class SettlerUnit: Unit
     {
-        public SettlerUnit(int movement, int health) : base(movement, health)
-        {
-        }
+        public override float Cost => 5.0f;
+
         
         
     }
