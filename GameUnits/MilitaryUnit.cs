@@ -12,7 +12,7 @@
             AttackPower = attackPower;
         }
 
-        protected override int Health
+        protected internal override int Health
         {
             get => base.Health + Xp;
             set => base.Health = value;

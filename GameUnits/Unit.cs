@@ -6,7 +6,7 @@ namespace GameUnits
     {
 
         private int _movement;
-        protected virtual int Health { get; set; }
+        protected internal virtual int Health { get; set; }
         public abstract float Cost { get; }
 
         public virtual void Move(int distance)
