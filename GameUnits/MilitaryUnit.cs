@@ -11,6 +11,12 @@
         {
             AttackPower = attackPower;
         }
+
+        protected override int Health
+        {
+            get { return base.Health + XP; }
+            set { base.Health = value; }
+        }
         
         public void Attack(Unit u)
         {
