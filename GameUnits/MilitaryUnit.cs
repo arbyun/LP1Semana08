@@ -26,5 +26,10 @@
                 Xp++;
             }
         }
+        
+        public override string ToString()
+        {
+            return $"{base.ToString()} AP={AttackPower} XP={Xp}";
+        }
     }
 }
