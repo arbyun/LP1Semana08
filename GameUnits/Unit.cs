@@ -6,14 +6,13 @@ namespace GameUnits
     {
 
         private int movement;
-        public int Health { get; set; }
+        public virtual int Health { get; set; }
 
         public virtual void Move(int distance)
         {
             Console.WriteLine($"Unit moved {distance} tiles.");
         }
 
-        //Unit constructor
         public Unit(int movement, int health)
         {
             this.movement = movement;
