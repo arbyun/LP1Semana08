@@ -2,7 +2,7 @@
 {
     public class MilitaryUnit: Unit
     {
-        public override float Cost { get { return AttackPower + Xp; } }
+        public override float Cost => AttackPower + Xp;
 
         private int AttackPower { get; }
         private int Xp { get; set; }
