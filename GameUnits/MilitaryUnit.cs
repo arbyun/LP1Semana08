@@ -20,7 +20,12 @@
         
         public void Attack(Unit u)
         {
-            
+            MilitaryUnit enemy = u as MilitaryUnit;
+            if (enemy != null)
+            {
+                enemy.Health -= AttackPower;
+                XP++;
+            }
         }
     }
 }
