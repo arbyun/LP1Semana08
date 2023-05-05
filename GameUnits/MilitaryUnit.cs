@@ -1,28 +1,32 @@
-﻿namespace GameUnits
+﻿using System;
+
+namespace GameUnits
 {
     public class MilitaryUnit: XPUnit
     {
         public override float Cost => AttackPower + Xp;
 
-        private int AttackPower { get; }
+        public int AttackPower { get; }
 
         public MilitaryUnit(int movement, int health, int attackPower) : base(movement, health)
         {
             AttackPower = attackPower;
         }
 
-        public void Attack(Unit u)
+        public override void Attack(Unit u)
         {
-            if (u is MilitaryUnit enemy)
+            if (u is MilitaryUnit)
             {
-                enemy.Health -= AttackPower;
-                Xp++;
+                MilitaryUnit enemy = u as MilitaryUnit;
+                int damage = Math.Min(AttackPower, enemy.Health);
+                enemy.Health -= damage;
+                Xp += damage;
             }
         }
         
         public override string ToString()
         {
-            return $"{base.ToString()} AP={AttackPower} XP={Xp}";
+            return $"{base.ToString()} XP={Xp} AP={AttackPower}";
         }
     }
 }

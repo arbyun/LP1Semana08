@@ -6,7 +6,7 @@ namespace GameUnits
     {
 
         private int _movement;
-        protected internal virtual int Health { get; set; }
+        public int Health { get; set; }
         public abstract float Cost { get; }
 
         public virtual void Move(int distance)
@@ -14,7 +14,9 @@ namespace GameUnits
             Console.WriteLine($"Unit moved {distance} tiles.");
         }
 
-        protected Unit(int movement, int health)
+        public abstract void Attack(Unit u);
+
+        public Unit(int movement, int health)
         {
             this._movement = movement;
             Health = health;
@@ -22,7 +24,7 @@ namespace GameUnits
         
         public override string ToString()
         {
-            return $"{this.GetType().Name}: HP={Health} COST={Cost.ToString("0.00")}";
+            return $"{this.GetType().Name}: HP={Health} COST={Cost}";
         }
     }
 }

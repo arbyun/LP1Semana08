@@ -2,9 +2,13 @@
 {
     public class SettlerUnit: Unit
     {
-        public override float Cost => 5.0f;
+        public override float Cost => 5f;
+        public override void Attack(Unit u)
+        {
+            
+        }
 
-        public SettlerUnit() : this(1, 2)
+        public SettlerUnit() : this(2, 1)
         {
         }
         
