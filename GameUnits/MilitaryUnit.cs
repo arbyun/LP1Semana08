@@ -2,10 +2,10 @@
 {
     public class MilitaryUnit: Unit
     {
-        public override float Cost { get { return AttackPower + XP; } }
+        public override float Cost { get { return AttackPower + Xp; } }
 
-        public int AttackPower { get; }
-        public int XP { get; private set; }
+        private int AttackPower { get; }
+        private int Xp { get; set; }
 
         public MilitaryUnit(int movement, int health, int attackPower) : base(movement, health)
         {
@@ -14,17 +14,16 @@
 
         protected override int Health
         {
-            get { return base.Health + XP; }
-            set { base.Health = value; }
+            get => base.Health + Xp;
+            set => base.Health = value;
         }
         
         public void Attack(Unit u)
         {
-            MilitaryUnit enemy = u as MilitaryUnit;
-            if (enemy != null)
+            if (u is MilitaryUnit enemy)
             {
                 enemy.Health -= AttackPower;
-                XP++;
+                Xp++;
             }
         }
     }
