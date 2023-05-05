@@ -1,23 +1,16 @@
 ﻿namespace GameUnits
 {
-    public class MilitaryUnit: Unit
+    public class MilitaryUnit: XPUnit
     {
         public override float Cost => AttackPower + Xp;
 
         private int AttackPower { get; }
-        private int Xp { get; set; }
 
         public MilitaryUnit(int movement, int health, int attackPower) : base(movement, health)
         {
             AttackPower = attackPower;
         }
 
-        protected internal override int Health
-        {
-            get => base.Health + Xp;
-            set => base.Health = value;
-        }
-        
         public void Attack(Unit u)
         {
             if (u is MilitaryUnit enemy)
