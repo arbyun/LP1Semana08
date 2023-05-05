@@ -2,10 +2,8 @@
 {
     public class MilitaryUnit: Unit
     {
-        public MilitaryUnit(int movement, int health) : base(movement, health)
-        {
-        }
-        
+        public override float Cost { get { return AttackPower + XP; } }
+
         public int AttackPower { get; }
         public int XP { get; private set; }
 
