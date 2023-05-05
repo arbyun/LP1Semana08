@@ -1,7 +1,9 @@
 ﻿namespace GameUnits
 {
-    public class XPUnit
+    public abstract class XPUnit: Unit
     {
+        public int Xp { get; protected set; }
+
         
     }
 }
