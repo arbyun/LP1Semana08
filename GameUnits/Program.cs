@@ -2,18 +2,43 @@
 
 namespace GameUnits
 {
-    internal static class Program
+    public class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
-            SettlerUnit settler = new SettlerUnit(1, 2);
-            settler.Move(3);
-            Console.WriteLine($"Settler Health: {settler.Health}, Cost: {settler.Cost}");
-            
-            MilitaryUnit soldier = new MilitaryUnit(2, 10, 5);
-            soldier.Move(5);
-            Console.WriteLine($"Soldier Health: {soldier.Health}, Cost: {soldier.Cost}");
+            // Criar array com três unidades
+            Unit[] units = new Unit[]
+            {
+                new MilitaryUnit(3, 10, 5),
+                new MilitaryUnit(4, 5, 3),
+                new SettlerUnit(),
+                new SpyUnit(),
+                new SpyUnit()
+            };
+
+            // Unidade 0 ataca unidade 4
+            (units[0] as MilitaryUnit).Attack(units[4]);
+            // Unidade 0 ataca unidade 2
+            (units[0] as MilitaryUnit).Attack(units[2]);
+            // Unidade 3 espia unidade 4
+            (units[3] as SpyUnit).GetSecretInfo(units[4]);
+            // Unidade 4 espia unidade 2
+            (units[4] as SpyUnit).GetSecretInfo(units[2]);
+
+            // "Imprimir" cada unidade
+            // chamando implicitamente o método ToString() de cada uma delas
+            foreach (Unit u in units)
+            {
+                Console.WriteLine(u);
+            }
+
+            // Output esperado:
+            //
+            // MilitaryUnit: HP=12 COST=7 XP=2 AP=5
+            // MilitaryUnit: HP=5 COST=3 XP=0 AP=3
+            // SettlerUnit: HP=1 COST=5
+            // SpyUnit: HP=2 COST=12.5 XP=3
+            // SpyUnit: HP=1 COST=12.5 XP=1
         }
     }
 }
-
