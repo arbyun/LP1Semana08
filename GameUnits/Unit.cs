@@ -19,5 +19,10 @@ namespace GameUnits
             this._movement = movement;
             Health = health;
         }
+        
+        public override string ToString()
+        {
+            return $"{this.GetType().Name}: HP={Health} COST={Cost.ToString("0.00")}";
+        }
     }
 }
